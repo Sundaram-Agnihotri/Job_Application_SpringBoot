@@ -1,6 +1,18 @@
 package com.embarkx.firstjobproject.job;
+//tell the spring boot that it is an entity class for database
 
+import jakarta.persistence.*;
+
+@Entity
+//this is a class which is mapped into orm
+//@Table(name = "job_table")
+//when we have to craete a table without the same name of class
 public class Job {
+//   Id :  make a primary key in table which is ID
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+//    @GeneratedValue -> jpa will automatcally generate id which is primary key
     private Long id;
     private String title;
     private String description;
@@ -15,6 +27,11 @@ public class Job {
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
         this.location = location;
+    }
+
+//    when we have to work with jpa , we have to a default constructor in class
+    public Job() {
+
     }
 
     public Long getId() {
