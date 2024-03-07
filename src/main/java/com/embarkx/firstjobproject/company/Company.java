@@ -1,6 +1,7 @@
 package com.embarkx.firstjobproject.company;
 
 import com.embarkx.firstjobproject.job.Job;
+import com.embarkx.firstjobproject.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -21,6 +22,9 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy = "company")   //means the compnay mapped with jobs relation
     private List<Job> jobs;
+
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
     public String getName() {
         return name;
@@ -53,6 +57,14 @@ public class Company {
     //for jpa
     public Company() {
 
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Long getId() {
