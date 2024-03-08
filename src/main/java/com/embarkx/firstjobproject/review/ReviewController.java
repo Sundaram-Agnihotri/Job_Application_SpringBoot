@@ -44,7 +44,7 @@ public class ReviewController {
         return new ResponseEntity<>(reviewService.getReview(companyId, reviewId), HttpStatus.OK);
     }
 
-    @PostMapping("/reviews/{reviewId")
+    @PostMapping("/reviews/{reviewId}")
     public ResponseEntity<String> updateReview(@PathVariable Long companyId, @PathVariable Long reviewId, @RequestBody Review review) {
         boolean isReviewUpdated = reviewService.updateReview(companyId, reviewId, review);
 
